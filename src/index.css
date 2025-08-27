@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-btn-lightblue: #def5fe;
+  --color-btn-primary: #5178f5;
+  --color-btn-danger: #f04242;
+  --color-btn-success: #8bc5a2;
+  --color-btn-salmon: #f3a691;
+  --color-btn-sky: #95c5e1;
+  --color-btn-gray: #eef0fa;
+}
+
+@theme {
+  --color-header: #5178f5;
+  --color-header-success: #4caf50;
+}
+
+@theme {
+  --font-family: 'Vazir', 'sans';
+}
