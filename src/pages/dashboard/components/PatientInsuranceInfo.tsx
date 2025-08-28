@@ -9,15 +9,11 @@ import {
 import { Edit2 } from "iconsax-react";
 import { useState, type ChangeEvent, type FC } from "react";
 import { convertNumberToPersian } from "../../../utils/convertNumberToPersian";
+import type { InsuranceInfo } from "../types";
 
 interface PatientInsuranceInfoProps {
-  data: {
-    insurance: string;
-    insuranceValidity: string;
-    supplementaryInsurance: string;
-    eligibility: string;
-  };
-  onChange: (data: PatientInsuranceInfoProps["data"]) => void;
+  data: InsuranceInfo;
+  onChange: (data: InsuranceInfo) => void;
 }
 
 const PatientInsuranceInfo: FC<PatientInsuranceInfoProps> = ({

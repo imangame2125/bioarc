@@ -4,7 +4,7 @@ import type { FC } from "react";
 interface PatientCallCardProps {
   name: string;
   avatar: string;
-  isReturning: boolean;
+  isKnownPatient: boolean;
   callDuration: string;
   callStatus: string;
 }
@@ -12,7 +12,7 @@ interface PatientCallCardProps {
 const PatientCallCard: FC<PatientCallCardProps> = ({
   name,
   avatar,
-  isReturning,
+  isKnownPatient,
   callDuration,
   callStatus,
 }) => {
@@ -24,7 +24,7 @@ const PatientCallCard: FC<PatientCallCardProps> = ({
         maxWidth: 400,
       }}
     >
-      {isReturning && (
+      {isKnownPatient && (
         <Typography
           className="bg-[#F4F6FB] h-[70px] rounded-t-[12px]"
           sx={{ textAlign: "right" }}

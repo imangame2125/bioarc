@@ -1,17 +1,12 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState, type ChangeEvent, type FC } from "react";
 import { convertNumberToPersian } from "../../../utils/convertNumberToPersian";
+import type { BasicInformation } from "../types";
+
 
 interface PatientBasicInfoProps {
-  data: {
-    name: string;
-    nationalId: string;
-    mobile: string;
-    birthDate: string;
-    age: number;
-    gender: string;
-  };
-  onChange: (data: PatientBasicInfoProps["data"]) => void;
+  data: BasicInformation;
+  onChange: (data: BasicInformation) => void;
 }
 
 const PatientBasicInfo: FC<PatientBasicInfoProps> = ({ data, onChange }) => {

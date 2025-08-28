@@ -3,19 +3,13 @@ import { Tag } from "iconsax-react";
 import { convertNumberToPersian } from "../../../../utils/convertNumberToPersian";
 
 interface HeaderProfileProps {
-  tagLabel: string;
-  answerLabel: string;
-  profileLabel: string;
+  labels?: string[];
   timestamp: string;
-  patientStatus: string;
 }
 
 const HeaderProfile: React.FC<HeaderProfileProps> = ({
-  tagLabel,
-  answerLabel,
-  profileLabel,
+  labels,
   timestamp,
-  patientStatus,
 }) => {
   return (
     <Box
@@ -27,7 +21,7 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
       }}
     >
       <Box>
-        <Typography color="text.secondary">{profileLabel}</Typography>
+        <Typography color="text.secondary">پروفایل</Typography>
         <Typography color="text.secondary">
           {convertNumberToPersian(timestamp)}
         </Typography>
@@ -35,10 +29,11 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
 
       <Box className="flex items-end gap-x-6">
         <Box>
-          <Typography color="primary">{answerLabel}</Typography>
-          <Typography className="text-center" color="primary">
-            {patientStatus}
-          </Typography>
+          {labels?.map((label, index) => (
+            <Typography key={index} color="primary">
+              {label}
+            </Typography>
+          ))}
         </Box>
         <Button
           className="flex items-center gap-x-1"
@@ -50,7 +45,7 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
             borderColor: "grey.400",
           }}
         >
-          {tagLabel}
+          {'برچسب'}
         </Button>
       </Box>
     </Box>

@@ -5,13 +5,11 @@ import { convertNumberToPersian } from "../../../../utils/convertNumberToPersian
 interface DashboardHeaderProps {
   doctorName: string;
   appointmentDate: string;
-  appointmentTime: string;
 }
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   doctorName,
   appointmentDate,
-  appointmentTime,
 }) => {
   return (
     <Box
@@ -31,11 +29,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         <Typography>اطلاعات نوبت:{doctorName}</Typography>
         <Box className="flex items-center">
           <Typography>
-            تاریخ نوبت: {convertNumberToPersian(appointmentDate)}-
-          </Typography>
-
-          <Typography component={"span"}>
-            {convertNumberToPersian(appointmentTime)}
+            تاریخ نوبت: {convertNumberToPersian(appointmentDate)}
           </Typography>
         </Box>
 
