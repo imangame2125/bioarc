@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Tag } from "iconsax-react";
+import { convertNumberToPersian } from "../../utils/convertNumberToPersian";
 
 interface HeaderProfileProps {
   tagLabel: string;
@@ -27,7 +28,9 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
     >
       <Box>
         <Typography color="text.secondary">{profileLabel}</Typography>
-        <Typography color="text.secondary">{timestamp}</Typography>
+        <Typography color="text.secondary">
+          {convertNumberToPersian(timestamp)}
+        </Typography>
       </Box>
 
       <Box className="flex items-end gap-x-6">

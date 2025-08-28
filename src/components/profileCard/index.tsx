@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 import { Call, CallRemove, MicrophoneSlash, Pause } from "iconsax-react";
 import type { FC } from "react";
 interface PatientCallCardProps {
@@ -20,10 +20,8 @@ const PatientCallCard: FC<PatientCallCardProps> = ({
     <Box
       sx={{
         borderRadius: 2,
-        padding: 2,
         textAlign: "center",
-        maxWidth: 300,
-        margin: "auto",
+        maxWidth: 400,
       }}
     >
       {isReturning && (
@@ -49,7 +47,7 @@ const PatientCallCard: FC<PatientCallCardProps> = ({
         {callStatus}
       </Typography>
 
-      <Stack direction="row" spacing={1} justifyContent="center" sx={{ mt: 2 }}>
+      <Box className="flex items-center gap-x-2 my-4 justify-center">
         <Button
           className="flex items-center gap-x-2"
           variant="outlined"
@@ -74,10 +72,10 @@ const PatientCallCard: FC<PatientCallCardProps> = ({
         >
           نگه داشتن
         </Button>
-      </Stack>
+      </Box>
 
       <Button
-        className="flex items-center gap-x-2 w-[252px] "
+        className="flex items-center gap-x-2 w-[252px] justify-center mx-auto my-4"
         variant="contained"
         color="error"
         fullWidth
