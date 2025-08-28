@@ -14,7 +14,7 @@ const Layout = () => {
   return (
     <Box className="flex flex-col min-h-screen ">
       <Header />
-      <main className="flex">
+      <main className="flex h-screen">
         <Sidebar items={sidebarItems} />
         <Outlet />
       </main>

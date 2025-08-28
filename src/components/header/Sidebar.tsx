@@ -11,7 +11,7 @@ interface Props {
 
 const Sidebar: FC<Props> = ({ items }) => {
   return (
-    <MenuList className="min-w-[240px] hidden lg:block">
+    <MenuList sx={{borderLeft:'1px solid silver',}} className="min-w-[240px] hidden lg:block">
       {items.map((item) => (
         <MenuItem component={'li'} key={item.name}>
           <ListItemIcon>{item.icon}</ListItemIcon>
