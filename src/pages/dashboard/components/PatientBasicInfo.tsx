@@ -1,6 +1,6 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useState, type ChangeEvent, type FC } from "react";
-import { convertNumberToPersian } from "../utils/convertNumberToPersian";
+import { convertNumberToPersian } from "../../../utils/convertNumberToPersian";
 
 interface PatientBasicInfoProps {
   data: {
@@ -23,7 +23,7 @@ const PatientBasicInfo: FC<PatientBasicInfoProps> = ({ data, onChange }) => {
   };
 
   return (
-    <Box className="shadow-xl bg-white rounded-tr-lg">
+    <Box className="shadow-xl bg-white rounded-lg">
       {isEditing ? (
         <Box>
           <TextField

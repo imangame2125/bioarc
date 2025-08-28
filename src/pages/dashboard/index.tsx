@@ -2,11 +2,11 @@ import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import avatarPatient from "../../assets/images/patient.svg";
-import DashboardHeader from "../../components/dashboardHeader";
-import HeaderProfile from "../../components/headerProfile";
-import PatientBasicInfo from "../../components/PatientBasicInfo";
-import PatientInsuranceInfo from "../../components/PatientInsuranceInfo";
-import PatientCallCard from "../../components/profileCard";
+import DashboardHeader from "./components/dashboardHeader";
+import HeaderProfile from "./components/headerProfile";
+import PatientBasicInfo from "./components/PatientBasicInfo";
+import PatientInsuranceInfo from "./components/PatientInsuranceInfo";
+import PatientCallCard from "./components/profileCard";
 const headerProfileItems = {
   tagLabel: "برچسب",
   answerLabel: "به بیمار نوبت درمانگاه قرنیه داده نشود",

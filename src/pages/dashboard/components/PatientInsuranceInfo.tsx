@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Edit2 } from "iconsax-react";
 import { useState, type ChangeEvent, type FC } from "react";
-import { convertNumberToPersian } from "../utils/convertNumberToPersian";
+import { convertNumberToPersian } from "../../../utils/convertNumberToPersian";
 
 interface PatientInsuranceInfoProps {
   data: {
@@ -32,7 +32,7 @@ const PatientInsuranceInfo: FC<PatientInsuranceInfoProps> = ({
   };
 
   return (
-    <Box className="shadow-xl bg-white rounded-tr-lg py-4" sx={{ mt: 3 }}>
+    <Box className="shadow-xl bg-white rounded-lg py-4" sx={{ mt: 3 }}>
       {isEditing ? (
         <Stack spacing={1}>
           <TextField

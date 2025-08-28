@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { Tag } from "iconsax-react";
-import { convertNumberToPersian } from "../../utils/convertNumberToPersian";
+import { convertNumberToPersian } from "../../../../utils/convertNumberToPersian";
 
 interface HeaderProfileProps {
   tagLabel: string;
