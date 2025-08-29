@@ -24,3 +24,21 @@ export interface OtherPersonFormData {
   reason: string;
   note: string;
 }
+
+export type DoctorStatus =
+  | "رزرو شده"
+  | "تغییر نوبت"
+  | "لغو نوبت"
+  | "برگزار شده"
+  | "جا به جا شده"
+  | "لغو شده";
+export interface DoctersProps {
+  name: string;
+  specialty: string;
+  status?: DoctorStatus[];
+  id: string;
+  date: Date | string;
+}
+export interface PatientHistoryCardProps {
+  cardPatientItems: DoctersProps[];
+}
