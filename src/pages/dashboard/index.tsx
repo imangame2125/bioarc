@@ -8,6 +8,7 @@ import OtherPersonAppointmentForm from "./components/otherPersonAppointmentForm"
 import PatientBasicInfo from "./components/PatientBasicInfo";
 import PatientInsuranceInfo from "./components/PatientInsuranceInfo";
 import PatientCallCard from "./components/profileCard";
+import PatientHistory from "./patientHistory";
 import type {
   BasicInformation,
   InsuranceInfo,
@@ -76,7 +77,6 @@ const Dashboard = () => {
         appointmentDate={dashboardHeaderItems.appointmentDate}
         doctorName={dashboardHeaderItems.doctorName}
       />
-
       <Grid className="px-12" container spacing={2}>
         <Grid size={4}>
           <PatientCallCard
@@ -103,6 +103,7 @@ const Dashboard = () => {
           />
         </Grid>
       </Grid>
+      <PatientHistory />
     </Box>
   );
 };
