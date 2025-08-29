@@ -1,85 +1,33 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import { useState, type SyntheticEvent } from "react";
-import type { DoctersProps } from "../types";
+import type { PatientAppointment, PatientCall } from "../types";
 import AdditionalPatientInformation from "./components/additionalPatientInformation";
 import PatientAppointmentHistory from "./components/patientAppointmentHistory";
 import PatientContactHistory from "./components/patientContactHistory";
 
-const patientAppointmentHistory: DoctersProps[] = [
+const patientAppointmentHistory: PatientAppointment[] = [
   {
-    name: "دکتر هاشمی",
-    specialty: "متخصص ریه",
+    doctorName: "دکتر هاشمی",
+    doctorSpecialty: "متخصص ریه",
     id: "1",
     date: "دو سال پیش",
     status: ["لغو نوبت", "لغو نوبت", "رزرو شده"],
   },
   {
-    name: "دکتر هاشمی",
-    specialty: "متخصص ریه",
+    doctorName: "دکتر هاشمی",
+    doctorSpecialty: "متخصص ریه",
     id: "2",
     date: "۱۴۰۲/۰۸/۱۶",
     status: ["لغو نوبت"],
   },
 ];
 
-const additionalPatientInformation: DoctersProps[] = [
-  {
-    name: "دکتر هاشمی",
-    specialty: "متخصص ریه",
-    id: "1",
-    date: "سه ماه پیش",
-    status: ["لغو شده"],
-  },
-  {
-    name: "دکتر رسولی",
-    specialty: "متخصص گوش و حلق و بینی",
-    id: "2",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: ["لغو شده"],
-  },
-  {
-    name: "دکتر عیوبی",
-    specialty: "متخصص گوش و حلق و بینی",
-    id: "3",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: ["لغو شده"],
-  },
-  {
-    name: "دکتر عیوبی",
-    specialty: "متخصص گوش و حلق و بینی",
-    id: "4",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: [
-      "رزرو شده",
-      "تغییر نوبت",
-      "لغو نوبت",
-      "جا به جا شده",
-      "برگزار شده",
-    ],
-  },
-  {
-    name: "دکتر عیوبی",
-    specialty: "متخصص گوش و حلق و بینی",
-    id: "5",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: ["رزرو شده", "تغییر نوبت", "لغو نوبت"],
-  },
-  {
-    name: "دکتر عیوبی",
-    specialty: "متخصص گوش و حلق و بینی",
-    id: "6",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: ["رزرو شده", "تغییر نوبت", "لغو نوبت"],
-  },
-];
 
-const patientContactHistory: DoctersProps[] = [
+const patientContactHistory: PatientCall[] = [
   {
-    name: "دکتر هاشمی",
-    specialty: "متخصص ریه",
+    duration: 120,
+    date: "1402/08/16 - 14:30",
     id: "1",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: ["لغو نوبت"],
   },
 ];
 type RenderComponents =
@@ -100,27 +48,26 @@ const PatientHistory = () => {
       case "patientAppointmentHistory":
         return (
           <PatientAppointmentHistory
-            cardPatientItems={patientAppointmentHistory}
+            appointments={patientAppointmentHistory}
           />
         );
 
       case "additionalPatientInformation":
         return (
-          <AdditionalPatientInformation
-            cardPatientItems={additionalPatientInformation}
-          />
+          <AdditionalPatientInformation />
         );
 
       case "patientContactHistory":
         return (
-          <PatientContactHistory cardPatientItems={patientContactHistory} />
+          <PatientContactHistory calls={patientContactHistory} />
         );
       default:
         return null;
     }
   };
+  
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box className="w-full">
       <Tabs
         value={renderComponent}
         onChange={handleChange}

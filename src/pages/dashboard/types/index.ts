@@ -25,20 +25,23 @@ export interface OtherPersonFormData {
   note: string;
 }
 
-export type DoctorStatus =
+export type AppointmentStatus =
   | "رزرو شده"
   | "تغییر نوبت"
   | "لغو نوبت"
   | "برگزار شده"
   | "جا به جا شده"
   | "لغو شده";
-export interface DoctersProps {
-  name: string;
-  specialty: string;
-  status?: DoctorStatus[];
+export interface PatientAppointment {
+  doctorName: string;
+  doctorSpecialty: string;
+  status?: AppointmentStatus[];
   id: string;
   date: Date | string;
 }
-export interface PatientHistoryCardProps {
-  cardPatientItems: DoctersProps[];
+
+export interface PatientCall {
+  id: string;
+  date: string;
+  duration: number;
 }
