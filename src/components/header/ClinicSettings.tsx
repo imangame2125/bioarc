@@ -1,6 +1,5 @@
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import { Box } from 'iconsax-react';
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
 interface Props {
   selectedDoctor: string;
@@ -15,13 +14,13 @@ const ClinicSettings = ({
 }: Props) => {
   return (
     <>
-      <Select value={selectedDoctor} onChange={() => {}} size='small'>
+      <Select value={selectedDoctor} onChange={() => {}} size="small">
         <MenuItem value={selectedDoctor}>{selectedDoctor}</MenuItem>
       </Select>
-      <Select value={selectedClinic} onChange={() => {}} size='small'>
+      <Select value={selectedClinic} onChange={() => {}} size="small">
         <MenuItem value={selectedClinic}>{selectedClinic}</MenuItem>
       </Select>
-      <Select value={selectedDepartment} onChange={() => {}} size='small'>
+      <Select value={selectedDepartment} onChange={() => {}} size="small">
         <MenuItem value={selectedDepartment}>{selectedDepartment}</MenuItem>
       </Select>
     </>

@@ -1,33 +1,22 @@
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import avatarPatient from "../../assets/images/patient.svg";
 import DashboardHeader from "./components/dashboardHeader";
 import HeaderProfile from "./components/headerProfile";
+import OtherPersonAppointmentForm from "./components/otherPersonAppointmentForm";
 import PatientBasicInfo from "./components/PatientBasicInfo";
 import PatientInsuranceInfo from "./components/PatientInsuranceInfo";
 import PatientCallCard from "./components/profileCard";
-import type { BasicInformation, InsuranceInfo } from "./types";
-
-const fakeDelay = (data: any) =>
-  new Promise((resolve) => setTimeout(() => resolve(data), 1000));
+import type {
+  BasicInformation,
+  InsuranceInfo,
+  OtherPersonFormData,
+} from "./types";
 
 const headerProfileItems = {
   timestamp: "شنبه ۴ تیرماه ساعت: ۱۲:۳۶:۲۸",
   labels: ["پرخاشگر", "به بیمار نوبت درمانگاه قرنیه داده نشود"],
-};
-
-const response:any = {
-  insurance: "2234تأمین اجتماعی",
-  insuranceValidity: "1401/01/01",
-  supplementaryInsurance: "دانا",
-  eligibility: "3245345",
-  name: "2مهدی غفاری",
-  nationalId: "23434",
-  mobile: "345345",
-  birthDate: "345345",
-  age: 44,
-  gender: "مرد",
 };
 
 const dashboardHeaderItems = {
@@ -43,6 +32,7 @@ const PatientCallCardItems = {
   name: "مهدی غفاری",
 };
 
+const reasonsList = ["پیگیری نتیجه آزمایش", "گزارش علائم جدید", "مشاوره درمان"];
 const Dashboard = () => {
   const [basicInfoItems, setBasicInfoItems] = useState<BasicInformation>({
     name: "مهدی غفاری",
@@ -60,36 +50,21 @@ const Dashboard = () => {
     eligibility: "استحقاق",
   });
 
+  const [otherPersonForm, setOtherPersonForm] = useState<OtherPersonFormData>({
+    reason: "",
+    note: "",
+  });
   const handleBasicInfoChange = (updated: BasicInformation) => {
     setBasicInfoItems(updated);
   };
 
+  const handleSaveOtherPerson = (data: OtherPersonFormData) => {
+    setOtherPersonForm(data);
+    console.log(data);
+  };
   const handleInsuranceInfoChange = (updated: InsuranceInfo) => {
     setInsuranceInfo(updated);
   };
-
-  useEffect(() => {
-    console.log("useEffect basicInfoItems");
-    fakeDelay(response).then((data: typeof response) => {
-      setBasicInfoItems({
-        name: data.name,
-        nationalId: data.nationalId,
-        mobile: data.mobile,
-        birthDate: data.birthDate,
-        age: data.age,
-        gender: data.gender,
-      });
-
-      setInsuranceInfo({
-        insurance: data.insurance,
-        insuranceValidity: data.insuranceValidity,
-        supplementaryInsurance: data.supplementaryInsurance,
-        eligibility: data.eligibility,
-      });
-    });
-  }, []);
-
-  console.log("Dashboard render");
 
   return (
     <Box sx={{ width: "100%", marginTop: "10px" }}>
@@ -120,6 +95,11 @@ const Dashboard = () => {
           <PatientInsuranceInfo
             data={insuranceInfo}
             onChange={handleInsuranceInfoChange}
+          />
+          <OtherPersonAppointmentForm
+            reasons={reasonsList}
+            defaultNote={otherPersonForm.note}
+            onSave={handleSaveOtherPerson}
           />
         </Grid>
       </Grid>
