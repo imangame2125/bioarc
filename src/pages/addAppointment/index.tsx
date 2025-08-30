@@ -1,5 +1,5 @@
-const AddTurn = () => {
-  return <div>AddTurn</div>;
+const AddAppointment = () => {
+  return <div>AddAppointment</div>;
 };
 
-export default AddTurn;
+export default AddAppointment;
