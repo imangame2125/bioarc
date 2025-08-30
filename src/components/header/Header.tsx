@@ -1,30 +1,29 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import { HambergerMenu } from 'iconsax-react';
-import { useState } from 'react';
-import avatar from '../../assets/images/avatar.svg';
-import DrawerMenu from './Drawer';
-import Notifications from './Notifications';
-import ClinicSettings from './ClinicSettings';
-import Avatar from './Avatar';
-import MainMenu from './MainMenu';
-
-
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
+import { HambergerMenu } from "iconsax-react";
+import { useState } from "react";
+import avatar from "../../assets/images/avatar.svg";
+import Logo from "../../assets/images/logo.svg";
+import Avatar from "./Avatar";
+import ClinicSettings from "./ClinicSettings";
+import DrawerMenu from "./Drawer";
+import MainMenu from "./MainMenu";
+import Notifications from "./Notifications";
 const leftMenuItems = [
-  { name: 'مدیریت' },
-  { name: 'مالی' },
-  { name: 'درمان' },
-  { name: 'بیماران من' },
-  { name: 'پنل من' },
+  { name: "مدیریت" },
+  { name: "مالی" },
+  { name: "درمان" },
+  { name: "بیماران من" },
+  { name: "پنل من" },
 ];
 
 const HambergerMenuItems = [
-  { name: 'تماس خروجی' },
-  { name: 'تاریخچه تماس ها' },
-  { name: 'کارمندان' },
+  { name: "تماس خروجی" },
+  { name: "تاریخچه تماس ها" },
+  { name: "کارمندان" },
 ];
 
 const Header = () => {
@@ -33,22 +32,14 @@ const Header = () => {
 
   return (
     <header>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar
-            sx={{
-              display: 'flex',
-              flexDirection: 'row-reverse',
-              justifyContent: 'space-between',
-              padding: '10px 6px',
-            }}
-          >
+      <Box className="">
+        <AppBar className="">
+          <Toolbar className="flex flex-row-reverse justify-between items-center py-2.5 px-2">
             <Avatar img={avatar} isLogin={true} />
-
-            <Box className="hidden sm:block">
+            <Box className="hidden sm:block cursor-pointer">
               <ClinicSettings
-                selectedClinic="بیمارستان شریعتی"
                 selectedDepartment="روماتولوژی"
+                selectedClinic="بیمارستان شریعتی"
                 selectedDoctor="محمود اکبریان"
               />
             </Box>
@@ -57,7 +48,7 @@ const Header = () => {
               size="large"
               color="inherit"
               aria-label="menu"
-              sx={{ marginLeft: 'auto' }}
+              sx={{ marginLeft: "auto" }}
             >
               <HambergerMenu
                 onClick={() => setRIghtSideOpen(true)}
@@ -66,6 +57,11 @@ const Header = () => {
                 color="#FFFFFF"
               />
             </IconButton>
+            <img
+              className="hidden md:hidden lg:block cursor-pointer"
+              src={Logo}
+              alt="logo"
+            />
           </Toolbar>
         </AppBar>
         <MainMenu items={leftMenuItems} />

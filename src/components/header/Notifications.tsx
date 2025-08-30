@@ -1,6 +1,10 @@
-import Box from '@mui/material/Box';
-import { ArrangeHorizontalSquare, MessageAdd1, Notification } from 'iconsax-react';
-import type { FC } from 'react';
+import Box from "@mui/material/Box";
+import {
+  ArrangeHorizontalSquare,
+  MessageAdd1,
+  Notification,
+} from "iconsax-react";
+import type { FC } from "react";
 
 interface NotificationsProps {
   notificationCount?: number;
@@ -8,7 +12,7 @@ interface NotificationsProps {
 
 const Notifications: FC<NotificationsProps> = ({ notificationCount = 0 }) => {
   return (
-    <Box className="flex items-center gap-2 border rounded px-4 justify-center py-2 gap-x-4 border-border-header">
+    <Box className="flex md:ml-12 cursor-pointer items-center gap-2 border rounded px-4 ml-4 justify-center py-2 gap-x-4 border-border-header">
       <Notification className="cursor-pointer" size="18" color="#D9E1F6" />
       <ArrangeHorizontalSquare size="18" color="#D9E1F6" />
       <Box className="relative">

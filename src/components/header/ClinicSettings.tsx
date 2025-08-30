@@ -1,3 +1,4 @@
+import { FormControl } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
@@ -13,17 +14,17 @@ const ClinicSettings = ({
   selectedDepartment,
 }: Props) => {
   return (
-    <>
-      <Select value={selectedDoctor} onChange={() => {}} size="small">
-        <MenuItem value={selectedDoctor}>{selectedDoctor}</MenuItem>
-      </Select>
+    <FormControl className="bg-gray-200 rounded flex flex-row cursor-pointer">
       <Select value={selectedClinic} onChange={() => {}} size="small">
         <MenuItem value={selectedClinic}>{selectedClinic}</MenuItem>
       </Select>
       <Select value={selectedDepartment} onChange={() => {}} size="small">
         <MenuItem value={selectedDepartment}>{selectedDepartment}</MenuItem>
       </Select>
-    </>
+      <Select value={selectedDoctor} onChange={() => {}} size="small">
+        <MenuItem value={selectedDoctor}>{selectedDoctor}</MenuItem>
+      </Select>
+    </FormControl>
   );
 };
 

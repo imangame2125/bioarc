@@ -1,14 +1,14 @@
-import type { FC } from 'react';
+import { Box } from "@mui/material";
+import type { FC } from "react";
 
 interface AvatarProps {
   img: string;
   isLogin?: boolean;
-  size?: number;
   onClick?: () => void;
 }
-const Avatar: FC<AvatarProps> = ({ img, isLogin = false, size = 40, onClick }) => {
+const Avatar: FC<AvatarProps> = ({ img, isLogin = false, onClick }) => {
   return (
-    <div className="relative inline-block" style={{ height: size }}>
+    <Box className="relative inline-block md:mr-12 cursor-pointer">
       <img
         onClick={onClick}
         className="rounded-full border-6 border-white object-cover cursor-pointer "
@@ -16,9 +16,9 @@ const Avatar: FC<AvatarProps> = ({ img, isLogin = false, size = 40, onClick }) =
         alt="avatar"
       />
       {isLogin && (
-        <span className="absolute bg-header-success rounded-full right-0 w-2 h-2 top-4 left-11 border border-white" />
+        <span className="absolute  bg-green-500 rounded-full right-0 w-2 h-2 top-4 left-11 border border-white" />
       )}
-    </div>
+    </Box>
   );
 };
 
