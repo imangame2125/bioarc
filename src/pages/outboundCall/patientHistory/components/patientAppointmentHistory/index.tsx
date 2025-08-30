@@ -14,11 +14,11 @@ const PatientAppointmentHistory: FC<Props> = ({ appointments }) => {
         <Box className="flex items-center px-4 justify-between">
           <Typography>{appointment.doctorName}</Typography>
           <Box className="flex items-center justify-center">
-            {appointment.status?.map((sts) => {
+            {appointment.status?.map((sts, index) => {
               return (
                 <Button
                   className={`${sts === "رزرو شده" ? "bg-red-800" : ""}`}
-                  key={sts}
+                  key={index}
                 >
                   {sts}
                 </Button>
@@ -34,9 +34,7 @@ const PatientAppointmentHistory: FC<Props> = ({ appointments }) => {
     );
   };
 
-  return (
-    <CardList items={appointments} renderer={renderCard} />
-  );
+  return <CardList items={appointments} renderer={renderCard} />;
 };
 
 export default PatientAppointmentHistory;
