@@ -7,19 +7,9 @@ interface HeaderProfileProps {
   timestamp: string;
 }
 
-const HeaderProfile: React.FC<HeaderProfileProps> = ({
-  labels,
-  timestamp,
-}) => {
+const HeaderProfile: React.FC<HeaderProfileProps> = ({ labels, timestamp }) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0px 20px",
-      }}
-    >
+    <Box className="flex justifuy-space-between items-center mt-6">
       <Box>
         <Typography color="text.secondary">پروفایل</Typography>
         <Typography color="text.secondary">
@@ -45,7 +35,7 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
             borderColor: "grey.400",
           }}
         >
-          {'برچسب'}
+          {"برچسب"}
         </Button>
       </Box>
     </Box>

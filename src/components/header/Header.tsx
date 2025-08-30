@@ -13,11 +13,11 @@ import DrawerMenu from "./Drawer";
 import MainMenu from "./MainMenu";
 import Notifications from "./Notifications";
 const leftMenuItems = [
-  { name: "مدیریت" },
-  { name: "مالی" },
-  { name: "درمان" },
-  { name: "بیماران من" },
   { name: "پنل من" },
+  { name: "بیماران من" },
+  { name: "درمان" },
+  { name: "مالی" },
+  { name: "مدیریت" },
 ];
 
 const HambergerMenuItems = [

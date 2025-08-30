@@ -1,14 +1,6 @@
-import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import avatarPatient from "../../assets/images/patient.svg";
-import DashboardHeader from "./components/dashboardHeader";
-import HeaderProfile from "./components/headerProfile";
-import OtherPersonAppointmentForm from "./components/otherPersonAppointmentForm";
-import PatientBasicInfo from "./components/PatientBasicInfo";
-import PatientInsuranceInfo from "./components/PatientInsuranceInfo";
-import PatientCallCard from "./components/profileCard";
-import PatientHistory from "./patientHistory";
 import type {
   BasicInformation,
   InsuranceInfo,
@@ -68,12 +60,12 @@ const OutboundCall = () => {
   };
 
   return (
-    <Box sx={{ width: "100%", marginTop: "10px" }}>
-      <HeaderProfile
+    <Box className="w-full">
+      {/* <HeaderProfile
         labels={headerProfileItems.labels}
         timestamp={headerProfileItems.timestamp}
-      />
-      <DashboardHeader
+      /> */}
+      {/* <DashboardHeader
         appointmentDate={dashboardHeaderItems.appointmentDate}
         doctorName={dashboardHeaderItems.doctorName}
       />
@@ -103,7 +95,7 @@ const OutboundCall = () => {
           />
         </Grid>
       </Grid>
-      <PatientHistory />
+      <PatientHistory /> */}
     </Box>
   );
 };
