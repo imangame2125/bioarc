@@ -1,4 +1,4 @@
-import { FormControl } from "@mui/material";
+import { Box } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
@@ -14,7 +14,7 @@ const ClinicSettings = ({
   selectedDepartment,
 }: Props) => {
   return (
-    <FormControl className="bg-gray-200 rounded flex flex-row cursor-pointer">
+    <Box className="bg-gray-200 rounded flex flex-row cursor-pointer">
       <Select value={selectedClinic} onChange={() => {}} size="small">
         <MenuItem value={selectedClinic}>{selectedClinic}</MenuItem>
       </Select>
@@ -24,7 +24,7 @@ const ClinicSettings = ({
       <Select value={selectedDoctor} onChange={() => {}} size="small">
         <MenuItem value={selectedDoctor}>{selectedDoctor}</MenuItem>
       </Select>
-    </FormControl>
+    </Box>
   );
 };
 
