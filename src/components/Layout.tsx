@@ -62,7 +62,7 @@ const Layout = () => {
   return (
     <Box className="flex flex-col min-h-screen ">
       <Header />
-      <main className="flex h-screen">
+      <main className="flex">
         <Sidebar items={sidebarItems} />
         <Outlet />
       </main>

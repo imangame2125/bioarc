@@ -1,10 +1,19 @@
 import { Box, Button, Typography } from "@mui/material";
 import type { FC } from "react";
-import type { PatientAppointment } from "../../../types";
+import type { AppointmentStatus, PatientAppointment } from "../../../types";
 import CardList from "../cardList";
 
 interface Props {
   appointments: PatientAppointment[];
+}
+
+const objectMap: Record<AppointmentStatus, string> = {
+  'لغو شده': '#E1797D',
+  'جا به جا شده': '#F3A691',
+  'برگزار شده': '#8BC5A2',
+  'رزرو شده': '#95C5E1',
+  'لغو نوبت': '',
+  'تغییر نوبت': ''
 }
 
 const PatientAppointmentHistory: FC<Props> = ({ appointments }) => {
@@ -15,9 +24,11 @@ const PatientAppointmentHistory: FC<Props> = ({ appointments }) => {
           <Typography>{appointment.doctorName}</Typography>
           <Box className="flex items-center justify-center">
             {appointment.status?.map((sts, index) => {
+              let bgColor = objectMap[sts];
+              bgColor = `bg-[${bgColor}]`;
               return (
                 <Button
-                  className={`${sts === "رزرو شده" ? "bg-red-800" : ""}`}
+                  className={bgColor}
                   key={index}
                 >
                   {sts}

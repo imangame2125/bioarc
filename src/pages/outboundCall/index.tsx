@@ -6,6 +6,14 @@ import type {
   InsuranceInfo,
   OtherPersonFormData,
 } from "./types";
+import HeaderProfile from "./components/headerProfile";
+import DashboardHeader from "./components/dashboardHeader";
+import { Grid } from "@mui/material";
+import PatientCallCard from "./components/profileCard";
+import OtherPersonAppointmentForm from "./components/otherPersonAppointmentForm";
+import PatientBasicInfo from "./components/PatientBasicInfo";
+import PatientInsuranceInfo from "./components/PatientInsuranceInfo";
+import PatientHistory from "./patientHistory";
 
 const headerProfileItems = {
   timestamp: "شنبه ۴ تیرماه ساعت: ۱۲:۳۶:۲۸",
@@ -60,17 +68,17 @@ const OutboundCall = () => {
   };
 
   return (
-    <Box className="w-full">
-      {/* <HeaderProfile
+    <Box className="w-full px-2 lg:px-0 bg-[#CFDDF080]">
+      <HeaderProfile
         labels={headerProfileItems.labels}
         timestamp={headerProfileItems.timestamp}
-      /> */}
-      {/* <DashboardHeader
+      />
+      <DashboardHeader
         appointmentDate={dashboardHeaderItems.appointmentDate}
         doctorName={dashboardHeaderItems.doctorName}
       />
-      <Grid className="px-12" container spacing={2}>
-        <Grid size={4}>
+      <Box className="flex-col gap-x-5 w-full lg:flex lg:flex-row lg:px-12">
+        <Box className='flex-4'>
           <PatientCallCard
             name={PatientCallCardItems.name}
             isKnownPatient={PatientCallCardItems.isKnownPatient}
@@ -78,8 +86,8 @@ const OutboundCall = () => {
             callDuration={PatientCallCardItems.callDuration}
             avatar={PatientCallCardItems.avatar}
           />
-        </Grid>
-        <Grid size={8}>
+        </Box>
+        <Box className='flex-8 mt-2 lg:mt-0'>
           <PatientBasicInfo
             data={basicInfoItems}
             onChange={handleBasicInfoChange}
@@ -93,9 +101,9 @@ const OutboundCall = () => {
             defaultNote={otherPersonForm.note}
             onSave={handleSaveOtherPerson}
           />
-        </Grid>
-      </Grid>
-      <PatientHistory /> */}
+        </Box>
+      </Box>
+      <PatientHistory />
     </Box>
   );
 };

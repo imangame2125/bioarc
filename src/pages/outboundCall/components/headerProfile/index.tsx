@@ -9,8 +9,8 @@ interface HeaderProfileProps {
 
 const HeaderProfile: React.FC<HeaderProfileProps> = ({ labels, timestamp }) => {
   return (
-    <Box className="flex justifuy-space-between items-center mt-6">
-      <Box>
+    <Box className="flex justifuy-space-between items-center p-4">
+      <Box className='flex-1'>
         <Typography color="text.secondary">پروفایل</Typography>
         <Typography color="text.secondary">
           {convertNumberToPersian(timestamp)}
@@ -20,7 +20,7 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({ labels, timestamp }) => {
       <Box className="flex items-end gap-x-6">
         <Box>
           {labels?.map((label, index) => (
-            <Typography key={index} color="primary">
+            <Typography key={index} color="primary" className="text-center">
               {label}
             </Typography>
           ))}

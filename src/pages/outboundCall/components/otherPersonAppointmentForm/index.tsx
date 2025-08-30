@@ -33,7 +33,7 @@ const OtherPersonAppointmentForm: FC<OtherPersonAppointmentFormProps> = ({
     setNote(e.target.value);
   };
   return (
-    <Box className="p-3 mt-4 shadow-xl bg-white">
+    <Box className="p-3 mt-2 shadow-xl bg-white rounded-lg">
       <Typography className="p-2">نوبت برای شخص دیگر</Typography>
       <Select
         value={reason}

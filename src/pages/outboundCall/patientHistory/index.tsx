@@ -18,10 +18,9 @@ const patientAppointmentHistory: PatientAppointment[] = [
     doctorSpecialty: "متخصص ریه",
     id: "2",
     date: "۱۴۰۲/۰۸/۱۶",
-    status: ["لغو نوبت"],
+    status: ["لغو شده"],
   },
 ];
-
 
 const patientContactHistory: PatientCall[] = [
   {
@@ -47,31 +46,27 @@ const PatientHistory = () => {
     switch (renderComponent) {
       case "patientAppointmentHistory":
         return (
-          <PatientAppointmentHistory
-            appointments={patientAppointmentHistory}
-          />
+          <PatientAppointmentHistory appointments={patientAppointmentHistory} />
         );
 
       case "additionalPatientInformation":
-        return (
-          <AdditionalPatientInformation />
-        );
+        return <AdditionalPatientInformation />;
 
       case "patientContactHistory":
-        return (
-          <PatientContactHistory calls={patientContactHistory} />
-        );
+        return <PatientContactHistory calls={patientContactHistory} />;
       default:
         return null;
     }
   };
-  
+
   return (
-    <Box className="w-full">
+    <Box className="bg-white mt-2 lg:mx-12 rounded-lg py-4">
       <Tabs
+        variant="scrollable"
+        scrollButtons="auto"
         value={renderComponent}
         onChange={handleChange}
-        aria-label="wrapped label tabs example"
+        className="mx-4"
       >
         <Tab value="patientAppointmentHistory" label="تاریخچه نوبت‌های بیمار" />
         <Tab value="patientContactHistory" label="تاریخچه تماس‌های بیمار" />

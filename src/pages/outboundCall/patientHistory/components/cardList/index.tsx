@@ -10,7 +10,7 @@ function CardList<T>({ items, renderer }: Props<T>) {
   return (
     <Box>
       {items.map((item, index) => (
-        <Card key={index} className="my-4 p-4 border rounded">
+        <Card key={index} className="my-3 mx-6 p-4 border rounded border-[#E6ECF6]">
           {renderer(item)}
         </Card>
       ))}

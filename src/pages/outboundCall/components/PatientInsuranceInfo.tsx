@@ -28,7 +28,7 @@ const PatientInsuranceInfo: FC<PatientInsuranceInfoProps> = ({
   };
 
   return (
-    <Box className="shadow-xl bg-white rounded-lg py-4" sx={{ mt: 3 }}>
+    <Box className="shadow-xl bg-white rounded-lg py-4 mt-2">
       {isEditing ? (
         <Stack spacing={1}>
           <TextField
