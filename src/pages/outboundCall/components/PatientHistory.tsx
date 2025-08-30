@@ -1,26 +1,9 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import { useState, type SyntheticEvent } from "react";
+import { useState, type FC, type SyntheticEvent } from "react";
 import type { PatientAppointment, PatientCall } from "../types";
-import AdditionalPatientInformation from "./components/additionalPatientInformation";
-import PatientAppointmentHistory from "./components/patientAppointmentHistory";
-import PatientContactHistory from "./components/patientContactHistory";
-
-const patientAppointmentHistory: PatientAppointment[] = [
-  {
-    doctorName: "دکتر هاشمی",
-    doctorSpecialty: "متخصص ریه",
-    id: "1",
-    date: "دو سال پیش",
-    status: ["لغو نوبت", "لغو نوبت", "رزرو شده"],
-  },
-  {
-    doctorName: "دکتر هاشمی",
-    doctorSpecialty: "متخصص ریه",
-    id: "2",
-    date: "۱۴۰۲/۰۸/۱۶",
-    status: ["لغو شده"],
-  },
-];
+import AdditionalPatientInformation from "./AdditionalPatientInformation";
+import PatientAppointmentHistory from "./PatientAppointmentHistory";
+import PatientContactHistory from "./PatientContactHistory";
 
 const patientContactHistory: PatientCall[] = [
   {
@@ -33,7 +16,12 @@ type RenderComponents =
   | "patientAppointmentHistory"
   | "additionalPatientInformation"
   | "patientContactHistory";
-const PatientHistory = () => {
+
+interface Props {
+  appointmentsHitory: PatientAppointment[];
+}
+
+const PatientHistory: FC<Props> = ({ appointmentsHitory }) => {
   const [renderComponent, setRenderComponent] = useState<RenderComponents>(
     "patientAppointmentHistory",
   );
@@ -45,9 +33,7 @@ const PatientHistory = () => {
   const renderComponents = () => {
     switch (renderComponent) {
       case "patientAppointmentHistory":
-        return (
-          <PatientAppointmentHistory appointments={patientAppointmentHistory} />
-        );
+        return <PatientAppointmentHistory appointments={appointmentsHitory} />;
 
       case "additionalPatientInformation":
         return <AdditionalPatientInformation />;

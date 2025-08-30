@@ -7,11 +7,11 @@ import {
   type SelectChangeEvent,
 } from "@mui/material";
 import { useState, type ChangeEvent, type FC } from "react";
-import CustomInput from "../../../../components/customInput";
+import CustomInput from "../../../components/customInput";
 import type {
   OtherPersonAppointmentFormProps,
   OtherPersonFormData,
-} from "../../types";
+} from "../types";
 
 const OtherPersonAppointmentForm: FC<OtherPersonAppointmentFormProps> = ({
   reasons,

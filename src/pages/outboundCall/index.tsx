@@ -1,29 +1,22 @@
 import Box from "@mui/material/Box";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import avatarPatient from "../../assets/images/patient.svg";
 import type {
+  AppintmentInformation,
   BasicInformation,
   InsuranceInfo,
   OtherPersonFormData,
+  PatientAppointment,
 } from "./types";
-import HeaderProfile from "./components/headerProfile";
-import DashboardHeader from "./components/dashboardHeader";
-import { Grid } from "@mui/material";
-import PatientCallCard from "./components/profileCard";
-import OtherPersonAppointmentForm from "./components/otherPersonAppointmentForm";
+import HeaderProfile from "./components/HeaderProfile";
+import PatientCallCard from "./components/PatientCallCard";
 import PatientBasicInfo from "./components/PatientBasicInfo";
 import PatientInsuranceInfo from "./components/PatientInsuranceInfo";
-import PatientHistory from "./patientHistory";
+import DashboardHeader from "./components/DashboardHeader";
+import OtherPersonAppointmentForm from "./components/OtherPersonAppointmentForm";
+import PatientHistory from "./components/PatientHistory";
+import { getPatientData } from "./service/outboundCall";
 
-const headerProfileItems = {
-  timestamp: "شنبه ۴ تیرماه ساعت: ۱۲:۳۶:۲۸",
-  labels: ["پرخاشگر", "به بیمار نوبت درمانگاه قرنیه داده نشود"],
-};
-
-const dashboardHeaderItems = {
-  doctorName: "هدی نعمت",
-  appointmentDate: "1400/05/13 11:45 - 13:00",
-};
 
 const PatientCallCardItems = {
   avatar: avatarPatient,
@@ -36,20 +29,28 @@ const PatientCallCardItems = {
 const reasonsList = ["پیگیری نتیجه آزمایش", "گزارش علائم جدید", "مشاوره درمان"];
 const OutboundCall = () => {
   const [basicInfoItems, setBasicInfoItems] = useState<BasicInformation>({
-    name: "مهدی غفاری",
-    nationalId: "5519764433",
-    mobile: "09370112768",
-    birthDate: "1359",
-    age: 44,
-    gender: "مرد",
+    name: "",
+    nationalId: "",
+    mobile: "",
+    birthDate: "",
+    age: 0,
+    gender: "",
   });
 
   const [insuranceInfo, setInsuranceInfo] = useState<InsuranceInfo>({
-    insurance: "تأمین اجتماعی",
-    insuranceValidity: "1401/01/01",
-    supplementaryInsurance: "دانا",
-    eligibility: "استحقاق",
+    insurance: "",
+    insuranceValidity: "",
+    supplementaryInsurance: "",
+    eligibility: "",
   });
+
+  const [appointmentInfo, setAppointmentInfo] = useState<AppintmentInformation>({
+    doctorName: '',
+    date: ''
+  })
+
+  const [appointmentsHistory, setAppointmentsHistory] = useState<PatientAppointment[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
 
   const [otherPersonForm, setOtherPersonForm] = useState<OtherPersonFormData>({
     reason: "",
@@ -67,15 +68,26 @@ const OutboundCall = () => {
     setInsuranceInfo(updated);
   };
 
+  useEffect(() => {
+    getPatientData()
+    .then(data => {
+      setBasicInfoItems(data.basicInformation);
+      setInsuranceInfo(data.insuranceInformation);
+      setAppointmentsHistory(data.appointmentsHistory);
+      setAppointmentInfo(data.appointmentInformation);
+      setTags(data.tags);
+    })
+  }, [])
+
   return (
     <Box className="w-full px-2 lg:px-0 bg-[#CFDDF080]">
       <HeaderProfile
-        labels={headerProfileItems.labels}
-        timestamp={headerProfileItems.timestamp}
+        labels={tags}
+        timestamp={"شنبه ۴ تیرماه ساعت: ۱۲:۳۶:۲۸"}
       />
       <DashboardHeader
-        appointmentDate={dashboardHeaderItems.appointmentDate}
-        doctorName={dashboardHeaderItems.doctorName}
+        appointmentDate={appointmentInfo.date}
+        doctorName={appointmentInfo.doctorName}
       />
       <Box className="flex-col gap-x-5 w-full lg:flex lg:flex-row lg:px-12">
         <Box className='flex-4'>
@@ -103,7 +115,7 @@ const OutboundCall = () => {
           />
         </Box>
       </Box>
-      <PatientHistory />
+      <PatientHistory appointmentsHitory={appointmentsHistory} />
     </Box>
   );
 };

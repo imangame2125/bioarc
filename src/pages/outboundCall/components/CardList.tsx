@@ -1,5 +1,5 @@
 import { Box, Card } from "@mui/material";
-import type { FC, JSX } from "react";
+import type { JSX } from "react";
 
 interface Props<T> {
   items: T[];

@@ -32,6 +32,7 @@ export type AppointmentStatus =
   | "برگزار شده"
   | "جا به جا شده"
   | "لغو شده";
+
 export interface PatientAppointment {
   doctorName: string;
   doctorSpecialty: string;
@@ -44,4 +45,18 @@ export interface PatientCall {
   id: string;
   date: string;
   duration: number;
+}
+
+
+export interface AppintmentInformation {
+  doctorName: string;
+  date: string;
+}
+
+export interface PatientInfo {
+  basicInformation: BasicInformation;
+  insuranceInformation: InsuranceInfo;
+  appointmentsHistory: PatientAppointment[];
+  appointmentInformation: AppintmentInformation;
+  tags: string[];
 }

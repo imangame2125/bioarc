@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import type { FC } from "react";
-import type { PatientCall } from "../../../types";
-import CardList from "../cardList";
+import type { PatientCall } from "../types";
+import CardList from "./CardList";
 
 interface Props {
   calls: PatientCall[];

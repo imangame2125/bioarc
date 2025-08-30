@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, Typography } from "@mui/material";
 import { Call, CallRemove, MicrophoneSlash, Pause } from "iconsax-react";
-import type { FC, JSX } from "react";
+import type { FC } from "react";
 import React from "react";
 interface PatientCallCardProps {
   name: string;

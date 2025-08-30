@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import type { FC } from "react";
-import type { AppointmentStatus, PatientAppointment } from "../../../types";
-import CardList from "../cardList";
+import type { AppointmentStatus, PatientAppointment } from "../types";
+import CardList from "./CardList";
 
 interface Props {
   appointments: PatientAppointment[];
