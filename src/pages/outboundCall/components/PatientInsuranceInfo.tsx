@@ -10,6 +10,8 @@ import { Edit2 } from "iconsax-react";
 import { useState, type ChangeEvent, type FC } from "react";
 import { convertNumberToPersian } from "../../../utils/convertNumberToPersian";
 import type { InsuranceInfo } from "../types";
+import RowForm from "./RowForm";
+import FormLabel from "./FormLabel";
 
 interface PatientInsuranceInfoProps {
   data: InsuranceInfo;
@@ -67,19 +69,20 @@ const PatientInsuranceInfo: FC<PatientInsuranceInfoProps> = ({
           </Button>
         </Stack>
       ) : (
-        <Box className="flex items-center justify-around">
-          <Typography>بیمه: {data.insurance}</Typography>
-          <Typography>
-            اعتبار بیمه: {convertNumberToPersian(data.insuranceValidity)}
-          </Typography>
-          <Typography>{data.eligibility}</Typography>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <RowForm>
+          <FormLabel label="بیمه" text={data.insurance} />
+          <FormLabel label="اعتبار بیمه" text={convertNumberToPersian(data.insuranceValidity)} />
+          <Typography className="flex-1 pr-5">{data.eligibility}</Typography>
+          <Box
+            sx={{ display: "flex", alignItems: "center", gap: 1 }}
+            className="flex-1 pr-5"
+          >
             <Typography>بیمه تکمیلی: {data.supplementaryInsurance}</Typography>
             <IconButton size="small" onClick={() => setIsEditing(true)}>
               <Edit2 size="16" color="#5178F5" />
             </IconButton>
           </Box>
-        </Box>
+        </RowForm>
       )}
     </Box>
   );

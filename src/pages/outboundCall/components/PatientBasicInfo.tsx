@@ -1,8 +1,9 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { useState, type ChangeEvent, type FC } from "react";
 import { convertNumberToPersian } from "../../../utils/convertNumberToPersian";
 import type { BasicInformation } from "../types";
-
+import RowForm from "./RowForm";
+import FormLabel from "./FormLabel";
 
 interface PatientBasicInfoProps {
   data: BasicInformation;
@@ -78,26 +79,30 @@ const PatientBasicInfo: FC<PatientBasicInfoProps> = ({ data, onChange }) => {
           </Button>
         </Box>
       ) : (
-        <Box className="py-4">
-          <Box className="flex items-center justify-around">
-            <Typography>نام: {data.name}</Typography>
-            <Typography>
-              کد ملی: {convertNumberToPersian(data.nationalId)}
-            </Typography>
-            <Typography>
-              موبایل: {convertNumberToPersian(data.mobile)}
-            </Typography>
-          </Box>
-          <Box className="flex items-center justify-around mt-6">
-            <Typography>
-              تاریخ تولد: {convertNumberToPersian(data.birthDate)} (سال
-              {convertNumberToPersian(convertNumberToPersian(data.age))})
-            </Typography>
-            <Typography>جنسیت: {data.gender}</Typography>
-            <Button size="small" onClick={() => setIsEditing(true)}>
-              مشاهده بیشتر و ویرایش
-            </Button>
-          </Box>
+        <Box className="py-2">
+          <RowForm>
+            <FormLabel label="نام" text={data.name} />
+            <FormLabel
+              label="کدملی"
+              text={convertNumberToPersian(data.nationalId)}
+            />
+            <FormLabel
+              label="موبایل"
+              text={convertNumberToPersian(data.mobile)}
+            />
+          </RowForm>
+          <RowForm>
+            <FormLabel
+              label="تاریخ تولد"
+              text={`${convertNumberToPersian(data.birthDate)} ${convertNumberToPersian(data.age)}سال`}
+            />
+            <FormLabel label="جنسیت" text={data.gender} />
+            <Box className="flex-1 pr-5">
+              <Button size="small" onClick={() => setIsEditing(true)}>
+                مشاهده بیشتر و ویرایش
+              </Button>
+            </Box>
+          </RowForm>
         </Box>
       )}
     </Box>
